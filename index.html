@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f8e9f0" />
+  <title>For Meri Bachi 💋</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --rose:#b85f7a; --deep:#542a3c; --cream:#fff9f8; --blush:#f8e9f0; --gold:#c9a56a; }
+    * { box-sizing: border-box; }
+    html, body { margin:0; width:100%; min-height:100%; overflow:hidden; }
+    body {
+      min-height:100svh; color:var(--deep);
+      font-family:"DM Sans", sans-serif;
+      background:
+        radial-gradient(ellipse at 18% 18%, rgba(255,255,255,.94), transparent 40%),
+        radial-gradient(ellipse at 85% 82%, rgba(231,177,194,.48), transparent 38%),
+        linear-gradient(135deg, #f9edf0, #f5e3e9 48%, #fff7f3);
+      display:grid; place-items:center;
+    }
+    .grain { position:fixed; inset:0; pointer-events:none; opacity:.14; z-index:1; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.15'/%3E%3C/svg%3E"); }
+    .glow { position:fixed; width:42vmax; height:42vmax; border-radius:50%; filter:blur(70px); opacity:.3; pointer-events:none; animation:glow 9s ease-in-out infinite alternate; }
+    .glow.one { background:#f1c7d5; top:-22vmax; left:-12vmax; }
+    .glow.two { background:#e8d5e4; bottom:-25vmax; right:-12vmax; animation-delay:-4s; }
+    @keyframes glow { to { transform:translate(5vw, 4vh) scale(1.12); } }
+    .frame { position:relative; z-index:2; width:min(92vw, 620px); padding:clamp(28px, 6vw, 58px); text-align:center; border:1px solid rgba(255,255,255,.8); border-radius:28px; background:rgba(255,250,249,.48); box-shadow:0 25px 90px rgba(105,53,75,.11), inset 0 1px 0 rgba(255,255,255,.85); backdrop-filter:blur(16px); animation:arrive 1.2s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes arrive { from { opacity:0; transform:translateY(18px) scale(.98); } to { opacity:1; transform:translateY(0) scale(1); } }
+    .eyebrow { font-size:.68rem; text-transform:uppercase; letter-spacing:.28em; color:#a56a7e; margin-bottom:22px; }
+    .ornament { color:var(--gold); letter-spacing:.35em; font-size:1rem; margin-bottom:17px; }
+    h1 { font-family:"Cormorant Garamond", serif; font-weight:500; font-size:clamp(2.7rem, 8vw, 4.7rem); line-height:.98; letter-spacing:-.035em; margin:0 0 18px; }
+    h1 em { font-weight:600; color:var(--rose); }
+    .intro { max-width:360px; margin:0 auto 30px; color:#876575; font-size:.96rem; line-height:1.8; }
+    .seal { width:66px; height:66px; display:grid; place-items:center; border:1px solid rgba(184,95,122,.35); border-radius:50%; margin:0 auto 26px; color:var(--rose); font-size:1.55rem; box-shadow:0 0 0 8px rgba(255,255,255,.22); animation:pulse 2.8s ease-in-out infinite; }
+    @keyframes pulse { 50% { transform:scale(1.07); box-shadow:0 0 0 13px rgba(255,255,255,.1); } }
+    .note { font-size:.75rem; letter-spacing:.06em; color:#ad8292; margin-top:22px; }
+    .hidden { display:none !important; }
+    .kiss-layer { position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:5; }
+    .kiss { position:absolute; left:var(--x); top:var(--y); font-size:var(--size); opacity:0; filter:drop-shadow(0 5px 8px rgba(122,44,75,.12)); animation:kissFly var(--dur) cubic-bezier(.16,.72,.2,1) forwards; will-change:transform,opacity; }
+    @keyframes kissFly {
+      0% { opacity:0; transform:translate3d(0, 22px, 0) rotate(var(--rot)) scale(.35); }
+      12% { opacity:1; }
+      70% { opacity:.98; }
+      100% { opacity:0; transform:translate3d(var(--dx), var(--dy), 0) rotate(calc(var(--rot) + 28deg)) scale(1.25); }
+    }
+    .final { position:fixed; z-index:8; inset:0; display:grid; place-items:center; padding:22px; opacity:0; pointer-events:none; transition:opacity 1.3s ease; }
+    .final.show { opacity:1; }
+    .final-card { width:min(92vw, 650px); padding:clamp(28px, 7vw, 62px) 24px; text-align:center; border:1px solid rgba(255,255,255,.86); border-radius:30px; background:rgba(255,249,248,.76); box-shadow:0 25px 100px rgba(105,53,75,.15); backdrop-filter:blur(18px); transform:translateY(15px) scale(.98); transition:transform 1.3s cubic-bezier(.2,.8,.2,1); }
+    .final.show .final-card { transform:translateY(0) scale(1); }
+    .final .eyebrow { margin-bottom:20px; }
+    .final h2 { font-family:"Cormorant Garamond",serif; font-weight:600; font-size:clamp(2.8rem, 9vw, 5.7rem); line-height:.9; letter-spacing:-.04em; margin:0 0 24px; color:var(--rose); }
+    .final p { font-family:"Cormorant Garamond",serif; font-size:clamp(1.25rem, 4vw, 1.75rem); line-height:1.45; margin:0 auto; max-width:450px; color:#70465a; }
+    .signature { margin-top:27px; color:#b17c8f; font-size:.75rem; letter-spacing:.18em; text-transform:uppercase; }
+    .heart-line { margin-top:25px; font-size:1.3rem; letter-spacing:.5em; color:var(--rose); animation:heartBeat 1.3s ease-in-out infinite; }
+    @keyframes heartBeat { 50% { transform:scale(1.1); } }
+    .replay { pointer-events:auto; margin-top:28px; padding:10px 18px; border:1px solid rgba(184,95,122,.3); border-radius:99px; color:#98566d; background:rgba(255,255,255,.45); font:500 .8rem "DM Sans",sans-serif; cursor:pointer; transition:background .2s, transform .2s; }
+    .replay:hover { background:rgba(255,255,255,.85); transform:translateY(-2px); }
+    .tiny-heart { position:fixed; z-index:0; color:rgba(184,95,122,.25); font-size:16px; animation:drift 11s linear infinite; pointer-events:none; }
+    @keyframes drift { from { transform:translateY(110vh) rotate(0); } to { transform:translateY(-15vh) rotate(35deg); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; } }
+  </style>
+</head>
+<body>
+  <div class="glow one"></div><div class="glow two"></div><div class="grain"></div>
+  <main class="frame" id="intro">
+    <div class="eyebrow">A little something, just for you</div>
+    <div class="seal">♡</div>
+    <div class="ornament">✦ &nbsp; WITH ALL MY LOVE &nbsp; ✦</div>
+    <h1>For my <em>bachi</em></h1>
+    <p class="intro">A tiny corner of the world made just for you.<br>And a very important delivery is on its way…</p>
+    <div class="note">PLEASE KEEP YOUR HEART READY ♡</div>
+  </main>
+
+  <div class="kiss-layer" id="kissLayer" aria-hidden="true"></div>
+
+  <section class="final" id="final" aria-live="polite">
+    <div class="final-card">
+      <div class="eyebrow">My favourite person in the whole world</div>
+      <div class="ornament">✦ &nbsp; FOREVER YOURS &nbsp; ✦</div>
+      <h2>I LOVE UHH<br>MERI BACHI</h2>
+      <p>Meri jaan, meri cutie, meri sab kuch.<br>Ummmmmahhhh! Mwahhh! 💋</p>
+      <div class="heart-line">♡ ♥ ♡</div>
+      <div class="signature">Only yours, always</div>
+      <button class="replay" id="replay">One more kiss attack? 💋</button>
+    </div>
+  </section>
+
+  <script>
+    const layer = document.getElementById('kissLayer');
+    const intro = document.getElementById('intro');
+    const final = document.getElementById('final');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const kisses = ['💋','😘','😚','💋','💕','💗','💖','💋','🩷'];
+    let timers = [];
+    let active = false;
+
+    function clearTimers() {
+      timers.forEach(clearTimeout); timers = [];
+      layer.replaceChildren();
+    }
+    function spawnKiss() {
+      if (!active) return;
+      const el = document.createElement('span');
+      el.className = 'kiss';
+      el.textContent = kisses[Math.floor(Math.random() * kisses.length)];
+      el.style.setProperty('--x', (Math.random() * 100) + 'vw');
+      el.style.setProperty('--y', (Math.random() * 82 + 8) + 'vh');
+      el.style.setProperty('--size', (Math.random() * 2.2 + 1.2) + 'rem');
+      el.style.setProperty('--dur', (Math.random() * 1.1 + 1.4) + 's');
+      el.style.setProperty('--rot', (Math.random() * 70 - 35) + 'deg');
+      el.style.setProperty('--dx', (Math.random() * 180 - 90) + 'px');
+      el.style.setProperty('--dy', (Math.random() * -210 - 45) + 'px');
+      layer.appendChild(el);
+      el.addEventListener('animationend', () => el.remove(), { once:true });
+      // Keep the DOM light even during the kiss storm.
+      if (layer.childElementCount > 90) layer.firstElementChild.remove();
+    }
+    function startShow() {
+      clearTimers();
+      active = true;
+      final.classList.remove('show');
+      intro.classList.add('hidden');
+      const duration = reducedMotion ? 1500 : 8500;
+      const interval = reducedMotion ? 180 : 65;
+      const endAt = performance.now() + duration;
+      function burst() {
+        if (!active || performance.now() >= endAt) {
+          active = false;
+          timers.push(setTimeout(() => {
+            layer.replaceChildren();
+            final.classList.add('show');
+          }, 450));
+          return;
+        }
+        // Burst of kisses, with a little extra flurry every few rounds.
+        spawnKiss();
+        if (!reducedMotion && Math.random() > .45) spawnKiss();
+        if (!reducedMotion && Math.random() > .82) { spawnKiss(); spawnKiss(); }
+        timers.push(setTimeout(burst, interval));
+      }
+      burst();
+    }
+    function addAmbientHearts() {
+      for (let i=0; i<12; i++) {
+        const heart = document.createElement('span');
+        heart.className = 'tiny-heart';
+        heart.textContent = ['♡','✧','♥'][i % 3];
+        heart.style.left = Math.random()*100 + 'vw';
+        heart.style.animationDelay = (-Math.random()*11) + 's';
+        heart.style.animationDuration = (8 + Math.random()*8) + 's';
+        heart.style.fontSize = (12 + Math.random()*15) + 'px';
+        document.body.appendChild(heart);
+      }
+    }
+    document.getElementById('replay').addEventListener('click', startShow);
+    addAmbientHearts();
+    // The kiss storm starts automatically as soon as the page opens.
+    window.addEventListener('load', () => {
+      timers.push(setTimeout(startShow, 650));
+    });
+  </script>
+</body>
+</html>
